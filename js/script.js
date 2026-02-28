@@ -1,7 +1,7 @@
 const images = [
   "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5",
-  "/img/sorriso.jpg",
-  "/img/cirurgiaodentista.jpg"
+  "/siteDente/img/sorriso.jpg",
+  "/siteDente/img/cirurgiaodentista.jpg"
 ];
 
 
@@ -19,6 +19,7 @@ images.forEach(src => {
 carousel.style.backgroundImage = `url('${images[index]}')`;
 carousel.style.opacity = 1;
 
+
 /* FUNÇÃO CENTRAL */
 function showImage(i) {
   carousel.style.opacity = 0;
@@ -34,7 +35,7 @@ function showImage(i) {
 function startCarousel() {
   interval = setInterval(() => {
     showImage(index + 1);
-  }, 5000); // ⏱️ 5 segundos (padrão profissional)
+  }, 5000);
 }
 
 /* RESET (evita acelerar ao clicar nas setas) */
@@ -94,8 +95,19 @@ startCarousel();
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.nav-menu');
 
-toggle.addEventListener('click', () => {
+toggle.addEventListener('click', (e) => {
+  e.stopPropagation();
   menu.classList.toggle('active');
+});
+
+document.addEventListener('click', (e) => {
+  if (
+    menu.classList.contains('active') &&
+    !menu.contains(e.target) &&
+    !toggle.contains(e.target)
+  ) {
+    menu.classList.remove('active');
+  }
 });
 
 // Fecha o menu ao clicar em um link
