@@ -477,12 +477,11 @@
       margin-bottom:30px;
     }
 
-    @media (max-width:768px){
-      .hero-content{
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 0 20px;
         text-align: center;
+        margin: 0 auto;
       }
     }
 
