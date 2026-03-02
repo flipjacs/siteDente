@@ -477,6 +477,15 @@
       margin-bottom:30px;
     }
 
+    @media (max-width:768px){
+      .hero-content{
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+      }
+    }
+
     .hero-btn{
       display:inline-block;
       padding:14px 35px;
