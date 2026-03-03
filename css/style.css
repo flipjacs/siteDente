@@ -371,7 +371,7 @@ section h2 {
 }
 
 .footer-container {
-  max-width: 1020px;
+  max-width: 1060px;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
