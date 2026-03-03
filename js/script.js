@@ -1,15 +1,13 @@
 const images = [
   "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5",
-  "/siteDente/img/sorriso.jpg",
-  "/siteDente/img/cirurgiaodentista.jpg"
+  "img/sorriso.jpg",
+  "img/cirurgiaodentista.jpg"
 ];
-
 
 const carousel = document.querySelector(".carousel-bg");
 let index = 0;
 let interval;
 
-/* preload (performance) */
 images.forEach(src => {
   const img = new Image();
   img.src = src;
@@ -31,14 +29,12 @@ function showImage(i) {
   }, 600);
 }
 
-/* AUTO PLAY (mais lento e elegante) */
 function startCarousel() {
   interval = setInterval(() => {
     showImage(index + 1);
   }, 5000);
 }
 
-/* RESET (evita acelerar ao clicar nas setas) */
 function resetCarousel() {
   clearInterval(interval);
   startCarousel();
@@ -57,39 +53,38 @@ function prevSlide() {
 
 startCarousel();
 
-    // animações sections
-    const sections = document.querySelectorAll('section');
-    function showSections(){
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(sec=>{
-        if(sec.getBoundingClientRect().top < trigger){
-          sec.classList.add('show');
-        }
-      });
+// animações sections
+const sections = document.querySelectorAll('section');
+function showSections(){
+  const trigger = window.innerHeight * 0.85;
+  sections.forEach(sec=>{
+    if(sec.getBoundingClientRect().top < trigger){
+      sec.classList.add('show');
     }
-    window.addEventListener('scroll', showSections);
-    showSections();
+  });
+}
+window.addEventListener('scroll', showSections);
+showSections();
 
-    // SCROLL SPY
-    const navLinks = document.querySelectorAll('nav a');
-    const spySections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+const spySections = document.querySelectorAll('section');
 
-    window.addEventListener('scroll', () => {
-      let current = '';
-      spySections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
+window.addEventListener('scroll', () => {
+  let current = '';
+  spySections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
     });
+});
 
     // MENU MOBILE
 const toggle = document.querySelector('.menu-toggle');
@@ -110,7 +105,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Fecha o menu ao clicar em um link
 document.querySelectorAll('.nav-menu a').forEach(link => {
   link.addEventListener('click', () => {
     menu.classList.remove('active');
