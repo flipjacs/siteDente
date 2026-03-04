@@ -17,7 +17,6 @@ images.forEach(src => {
 carousel.style.backgroundImage = `url('${images[index]}')`;
 carousel.style.opacity = 1;
 
-
 /* FUNÇÃO CENTRAL */
 function showImage(i) {
   carousel.style.opacity = 0;
