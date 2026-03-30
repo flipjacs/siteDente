@@ -1,9 +1,20 @@
 /* CAROUSEL */
-const images = [
-  "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1600&q=80",
+
+const isMobile = () => window.innerWidth <= 768;
+
+const desktopImages = [
+  "img/implantodontia.jpeg",
   "img/sorriso.jpg",
   "img/cirurgiaodentista.jpg",
 ];
+
+const mobileImages = [
+  "img/implantodontia-mobile.jpeg",
+  "img/sorriso-mobile.jpeg",
+  "img/cirurgiaodentista-mobile.jpeg"
+];
+
+const images = isMobile() ? mobileImages : desktopImages;
 
 const carouselEl = document.querySelector(".carousel-bg");
 const dotsContainer = document.getElementById("carouselDots");
