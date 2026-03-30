@@ -154,8 +154,7 @@ toggle.addEventListener("click", (e) => {
   const isOpen = menu.classList.toggle("active");
   toggle.setAttribute("aria-expanded", isOpen);
   toggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
-  toggle.classList.toggle("is-open", isOpen); // ← ADICIONE
-
+  toggle.classList.toggle("is-open", isOpen);
 });
 
 function closeMenu() {
