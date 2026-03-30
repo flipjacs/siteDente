@@ -11,7 +11,7 @@ const desktopImages = [
 const mobileImages = [
   "img/implantodontia-mobile.jpeg",
   "img/sorriso-mobile.jpeg",
-  "img/cirurgiaodentista-mobile.jpeg"
+  "img/cirurgiaodentista-mobile.jpeg",
 ];
 
 const images = isMobile() ? mobileImages : desktopImages;
