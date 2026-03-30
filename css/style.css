@@ -81,7 +81,7 @@ ul {
 }
 
 .logo img {
-  height: 100px;
+  height: 130 px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
