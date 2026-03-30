@@ -3,15 +3,15 @@
 const isMobile = () => window.innerWidth <= 768;
 
 const desktopImages = [
-  "img/implantodontia.jpeg",
-  "img/sorriso.jpg",
+  "img/implantodontia.webp",
+  "img/sorriso.webp",
   "img/cirurgiaodentista.jpg",
 ];
 
 const mobileImages = [
-  "img/implantodontia-mobile.jpeg",
-  "img/sorriso-mobile.jpeg",
-  "img/cirurgiaodentista-mobile.jpeg",
+  "img/implantodontia-mobile.webp",
+  "img/sorriso-mobile.webp",
+  "img/cirurgiaodentista-mobile.webp",
 ];
 
 const images = isMobile() ? mobileImages : desktopImages;
@@ -145,11 +145,25 @@ navbar.classList.toggle("scrolled", window.scrollY > 30);
 const toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".nav-menu");
 
+const ICON_BARS = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
+
+const ICON_XMARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
 toggle.addEventListener("click", (e) => {
   e.stopPropagation();
   const isOpen = menu.classList.toggle("active");
   toggle.setAttribute("aria-expanded", isOpen);
+  toggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+  toggle.classList.toggle("is-open", isOpen); // ← ADICIONE
+
 });
+
+function closeMenu() {
+  menu.classList.remove("active");
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-label", "Abrir menu");
+  toggle.classList.remove("is-open");
+}
 
 document.addEventListener("click", (e) => {
   if (
@@ -157,9 +171,12 @@ document.addEventListener("click", (e) => {
     !menu.contains(e.target) &&
     !toggle.contains(e.target)
   ) {
-    menu.classList.remove("active");
-    toggle.setAttribute("aria-expanded", "false");
+    closeMenu();
   }
+});
+
+document.querySelectorAll(".nav-menu a").forEach((link) => {
+  link.addEventListener("click", closeMenu);
 });
 
 document.querySelectorAll(".nav-menu a").forEach((link) => {

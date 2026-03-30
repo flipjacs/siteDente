@@ -131,11 +131,39 @@ ul {
   background: none;
   border: none;
   color: #fff;
-  font-size: 24px;
   cursor: pointer;
   padding: 6px;
   align-items: center;
   justify-content: center;
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.menu-toggle svg {
+  position: absolute;
+  top: 0; left: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-toggle .icon-bars {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.menu-toggle .icon-xmark {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.menu-toggle.is-open .icon-bars {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.menu-toggle.is-open .icon-xmark {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 /* HERO */
