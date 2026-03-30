@@ -711,6 +711,10 @@ section h2 {
     display: flex;
   }
 
+  .hero {
+    height: 100svh; /* svh ignora a barra do browser, evita o "salto" */
+  }
+
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -762,16 +766,6 @@ section h2 {
     gap: 8px;
     text-align: center;
   }
-
-  .hero {
-    height: 70vh;
-    min-height: 420px;
-  }
-
-  .carousel-bg {
-    background-position: center top;
-    background-size: cover;
-  }
 }
 
 @media (max-width: 480px) {
@@ -783,14 +777,5 @@ section h2 {
   }
   .cards-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero {
-    height: 65vh;
-    min-height: 380px;
-  }
-
-  .carousel-bg {
-    background-position: center 15%;
   }
 }
